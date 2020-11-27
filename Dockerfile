@@ -1,7 +1,7 @@
 FROM azul/zulu-openjdk-alpine:11.0.9
 LABEL base=alpine engine=jvm version=java11 timezone=UTC port=8080 dir=/opt/app user=app
 
-RUN apk update && apk add --no-cache tzdata curl bash && rm -rf /var/cache/apk/*
+RUN apk update && apk add --no-cache tzdata curl bash gcompat && rm -rf /var/cache/apk/*
 ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
