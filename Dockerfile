@@ -12,7 +12,7 @@ RUN echo 104.18.21.159 cdn.azul.com | tee -a /etc/hosts && wget --quiet https://
 
 ENV JAVA_HOME=/usr/lib/jvm/zulu11-ca
 
-RUN apk update && apk add --no-cache tzdata curl bash gcompat openssl && rm -rf /var/cache/apk/*
+RUN apk update && apk add --no-cache tzdata curl bash gcompat && rm -rf /var/cache/apk/*
 ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
