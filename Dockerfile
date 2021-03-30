@@ -1,4 +1,4 @@
-FROM alpine:3.13.3
+FROM alpine:3.13.0
 
 LABEL base=alpine engine=jvm version=java11 timezone=UTC port=8080 dir=/opt/app user=app
 
