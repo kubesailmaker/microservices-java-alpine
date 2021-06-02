@@ -6,8 +6,9 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN echo 104.18.21.159 cdn.azul.com | tee -a /etc/hosts && wget --quiet https://cdn.azul.com/public_keys/alpine-signing@azul.com-5d5dc44c.rsa.pub -P /etc/apk/keys/ && \
+RUN wget -P /etc/apk/keys/ https://cdn.azul.com/public_keys/alpine-signing@azul.com-5d5dc44c.rsa.pub && \
     echo "https://repos.azul.com/zulu/alpine" >> /etc/apk/repositories && \
+    apk update && \
     apk --no-cache add zulu11-jdk
 
 ENV JAVA_HOME=/usr/lib/jvm/zulu11-ca
